@@ -1,0 +1,17 @@
+{
+    "name": "nhat/scripts",
+    "description": "NA",
+    "type": "library",
+    "version": "1.0.0",
+    "license": [
+        "MIT"
+    ],
+    "require": {
+        "guzzlehttp/guzzle": "^7.5"
+    },
+    "autoload": {
+        "files": [
+            "index.php"
+        ]
+    }
+}

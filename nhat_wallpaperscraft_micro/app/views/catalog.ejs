@@ -1,0 +1,57 @@
+<!doctype html>
+<html lang="en">
+<%- include('./partials/head', {
+    seoContent: seoContent,
+    seoCanonical: seoCanonical,
+    seoTitle: seoTitle,
+    seoKeywords: seoKeywords
+  }); %>
+<body class="catalog-view">
+<%- include('./partials/nav', {categories: categories}); %>
+<div class="container-fluid main-container full-height">
+    <div class="container">
+        <div class="row">
+            <% if (isLoaded) { %>
+                <!-- Page Content -->
+                <div class="container">
+                    <h1 class="fw-light text-center text-lg-start mt-4 mb-0 custom-heading"><%= topic %> Wallpapers</h1>
+                    <p class="text-center custom-main-source"><a href="<%= orig %>">View ` <%= topic %> ` on Wallpaperscraft <i class="bi bi-box-arrow-up-right"></i></a></p>
+                    <hr class="mt-2 mb-5 custom-hr">
+                    <div class="row text-center text-lg-start">
+                        <% images.forEach(function(image){ %>
+                            <div class="col-lg-4 col-md-4 col-xs-1">
+                                <a href="<%= image.orig %>" class="d-block mb-4 h-200 image-link">
+                                    <img class="img-fluid img-thumbnail custom-image" src="<%= image.link %>" alt="<%= image.alt %>">
+                                    <span class="mask label">
+                                        <%= image.alt %>
+                                        <i class="bi bi-link-45deg"></i>
+                                    </span>
+                                </a>
+                            </div>
+                        <% }); %>
+                    </div>
+                </div>
+            <% } %>
+            <% if (!isLoaded) { %>
+                <div class="alert alert-primary not-loaded">The resource did not load. Please refresh the page</div>
+            <% } %>
+        </div>
+    </div>
+    <nav aria-label="Page navigation" class="custom-pagination">
+        <ul class="pagination justify-content-center">
+            <li class="page-item">
+                <a class="page-link" href="<%= prevLink %>" tabindex="-1">Previous</a>
+            </li>
+            <li class="page-item <% if (activeItem == 1) { %>active<% } %>"><a class="page-link" href="<%= prevLink %>"><%= prevPageId %></a></li>
+            <li class="page-item <% if (activeItem == 2) { %>active<% } %>"><a class="page-link" href="<%= currentLink %>"><%= currentPageId %></a></li>
+            <li class="page-item <% if (activeItem == 3) { %>active<% } %>"><a class="page-link" href="<%= nextLink %>"><%= nextPageId %></a></li>
+            <li class="page-item">
+                <a class="page-link" href="<%= nextLink %>">Next</a>
+            </li>
+        </ul>
+    </nav>
+</div>
+<%- include('./partials/footer'); %>
+<%- include('./partials/endScripts'); %>
+</body>
+</html>

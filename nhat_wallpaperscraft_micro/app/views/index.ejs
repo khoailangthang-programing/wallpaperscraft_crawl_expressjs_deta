@@ -1,0 +1,44 @@
+<!doctype html>
+<html lang="en">
+  <%- include('./partials/head', {
+    seoContent: seoContent,
+    seoCanonical: seoCanonical,
+    seoTitle: seoTitle,
+    seoKeywords: seoKeywords
+  }); %>
+<body class="cms-home-page">
+<%- include('./partials/nav', {categories: categories}); %>
+<div class="container-fluid main-container full-height">
+  <div class="container">
+    <div class="row">
+      <% if (isLoaded) { %>
+        <!-- Page Content -->
+        <div class="container">
+            <h1 class="fw-light text-center text-lg-start mt-4 mb-0 custom-heading">Desktop wallpapers, hd backgrounds, free hd wallpapers</h1>
+            <p class="text-center custom-main-source">NW Thumbnail Gallery</p>
+            <hr class="mt-2 mb-5 custom-hr">
+            <div class="row text-center text-lg-start">
+                <% images.forEach(function(image){ %>
+                <div class="col-lg-4 col-md-4 col-xs-1">
+                    <a href="<%= image.orig %>" class="d-block mb-4 h-200 image-link">
+                        <img class="img-fluid img-thumbnail custom-image" src="<%= image.link %>" alt="<%= image.alt %> wallpapers">
+                        <span class="mask label">
+                            <%= image.alt %>
+                            <i class="bi bi-link-45deg"></i>
+                        </span>
+                    </a>
+                </div>
+                <% }); %>
+            </div>
+        </div>
+      <% } %>
+      <% if (!isLoaded) { %>
+        <div class="alert alert-primary not-loaded">The resource did not load. Please refresh the page</div>
+      <% } %>
+    </div>
+  </div>
+</div>
+<%- include('./partials/footer'); %>
+<%- include('./partials/endScripts'); %>
+</body>
+</html>

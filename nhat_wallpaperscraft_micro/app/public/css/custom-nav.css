@@ -1,0 +1,63 @@
+html, body {
+  height: 100%;
+}
+.full-height {
+  min-height: 100%;
+}
+.nav-main-custom, .nav-main-custom .container-fluid, .nav-main-custom .container-fluid .container {
+  background-color: #fff !important;
+}
+.nav-main-custom .container-fluid {
+  border-bottom: 1px solid #f8f9fa;
+}
+.main-container {
+  padding-top: 55px;
+  background-color: #1c1c1c !important;
+  display: flex;
+  flex-direction: column;
+  align-items: stretch;
+  min-height: 100%;
+  padding-bottom: 55px;
+}
+.main-container .custom-heading {
+  color: #fbfbfb;
+}
+.image-link {
+  position: relative;
+}
+.image-link .label {
+  position: absolute;
+  bottom: -20px;
+  font-size: 12px;
+  width: 100%;
+  text-align: center;
+  right: 0;
+  color: #a57272;
+  font-weight: 500;
+}
+.custom-image {
+  border-radius: 0 !important;
+}
+.custom-pagination {
+  margin-top: 55px;
+}
+.custom-pagination .page-item .page-link {
+  background-color: #1c1c1c00;
+  border: none;
+  border-radius: 0;
+  color: #a57272;
+}
+.custom-pagination .page-item.active .page-link {
+  font-weight: bold;
+  color: #51bf5b;
+}
+.custom-hr {
+  border-top: 1px solid rgb(255 255 255 / 18%);
+}
+.custom-main-source, .custom-main-source a {
+  color: #a57272;
+  font-size: 13px;
+}
+.custom-main-source a i.bi {
+  font-size: 11px;
+}

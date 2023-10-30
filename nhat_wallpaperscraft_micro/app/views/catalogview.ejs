@@ -1,0 +1,42 @@
+<!doctype html>
+<html lang="en">
+<%- include('./partials/head', {title: false}); %>
+<body>
+<%- include('./partials/nav', {categories: categories}); %>
+<%= data %>
+<div class="container-fluid main-container full-height">
+    <div class="container">
+        <div class="row">
+            <% if (loaded) { %>
+                <!-- Page Content -->
+                <div class="container">
+                    <h1 class="fw-light text-center text-lg-start mt-4 mb-0 custom-heading"><%= topic %> | <%= orig %></h1>
+                    <hr class="mt-2 mb-5 custom-hr">
+                    <div class="row text-center text-lg-start">
+                        <% images.forEach(function(image){ %>
+                            <div class="col-lg-4 col-md-4 col-6">
+                                <a href="<%= image.orig %>" class="d-block mb-4 h-200 image-link">
+                                    <img class="img-fluid img-thumbnail custom-image" src="<%= image.link %>" alt="<%= image.alt %>">
+                                    <span class="mask label">
+                                        <%= image.alt %>
+                                        <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-link-45deg" viewBox="0 0 16 16">
+                                          <path d="M4.715 6.542 3.343 7.914a3 3 0 1 0 4.243 4.243l1.828-1.829A3 3 0 0 0 8.586 5.5L8 6.086a1.002 1.002 0 0 0-.154.199 2 2 0 0 1 .861 3.337L6.88 11.45a2 2 0 1 1-2.83-2.83l.793-.792a4.018 4.018 0 0 1-.128-1.287z"/>
+                                          <path d="M6.586 4.672A3 3 0 0 0 7.414 9.5l.775-.776a2 2 0 0 1-.896-3.346L9.12 3.55a2 2 0 1 1 2.83 2.83l-.793.792c.112.42.155.855.128 1.287l1.372-1.372a3 3 0 1 0-4.243-4.243L6.586 4.672z"/>
+                                        </svg>
+                                    </span>
+                                </a>
+                            </div>
+                        <% }); %>
+                    </div>
+                </div>
+            <% } %>
+            <% if (!loaded) { %>
+                <div class="alert alert-primary not-loaded">The resource did not load. Please refresh the page</div>
+            <% } %>
+        </div>
+    </div>
+</div>
+<%- include('./partials/footer'); %>
+<%- include('./partials/endScripts'); %>
+</body>
+</html>
